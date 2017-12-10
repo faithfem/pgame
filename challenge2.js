@@ -13,6 +13,7 @@ var ages = [];
 var d = new Date();
 var today = d.getFullYear();
 var i;
+var fullAges = [];
 
 for (i = 0; i < yearBorn.length; i++){
     ages[i] = today - yearBorn[i];
@@ -20,9 +21,11 @@ for (i = 0; i < yearBorn.length; i++){
 
 for (i = 0; i < yearBorn.length; i++){
     if (ages[i] >=18) {
-        console.log("Person is " + ages[i] + " years old, and is of full age.");
+        console.log("Person " + (i+1) + " is " + ages[i] + " years old, and is of full age.");
+        fullAges.push(true);
     } else{
-        console.log("Person is " + ages[i] + " years old, and is NOT of full age");
+        console.log("Person " + (i+1) + " is " + ages[i] + " years old, and is NOT of full age");
+        //fullAges.push(true);
     }
 }
 
