@@ -13,3 +13,7 @@ console.log(john["lastName"]);
 john.lastName = "Miller"; //TO CHANGE THE LAST NAME OR HOW TO CHANGE ANYTHING
 console.log(john.lastName);
 console.log(john);
+
+
+
+
