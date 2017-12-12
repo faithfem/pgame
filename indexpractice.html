@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Section 2: JavaScript Basics</title>
+    </head>
+    <body>
+    <!--5 PRMITIVE DATA TYPES: NUM, STR, BOOL, UNDEF, NULL. PRIMITIVE MEANS THEY R NOT OBJECTS, THEY R SIMPLE DATA TYPES--->
+    <!--JS DOES NOT HAVE INTEGERS, DECIMALS, ETC --->
+    
+    
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Year Born</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var age = prompt("Please enter year you were born", 1976);
+    if (age != null) {
+        document.getElementById("demo").innerHTML =
+        "Hello, you were born in " + age + "! How are you today?";
+    }
+}
+</script>
+
+
+    </body>
+    <script src="script.js"></script>
+    <script src="challenge1.js"></script>
+    <script src="challenge1b.js"></script>
+    <script src="functions.js"></script>
+    <script src="arrays.js"></script>
+    <script src="objects.js"></script>
+    <script src="objectsMethods.js"></script>
+    <script src="loops.js"></script>
+    <script src="challenge2.js"></script>
+    <script src="test.js"></script>
+    <script src="scope.js"></script>
+    <script src="this.js"></script>
+    
+    
+    
+</html>
