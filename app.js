@@ -13,9 +13,9 @@ activePlayer = 0;
 dice = Math.floor(Math.random() * 6) + 1;
 console.log(dice);
 
-document.querySelector("#current-" + activePlayer).textContent = dice;
+document.querySelector("#current-" + activePlayer).textContent = dice; //DOM ACCESS. QUERY SELECTOR LETS U SELECT STHING LIKE CSS DOES. BUT IT SELECTS THE 1ST ITEM IT FIND BUT THERE IS A WORKAROUND
 
-var x = document.querySelector("#score-0").textContent;
+var x = document.querySelector("#score-0").textContent;//SELECTS THE ROUND SCORE VARIABLE. LIKE IN CSS, TO SELECT AN ID, USE #. TO CHANGE THE TEXT IN THE SECTION, USE THE TEXTCONTENT METHOD 
 console.log(x);
 
 document.querySelector(".dice").style.display = "none";
