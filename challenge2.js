@@ -24,7 +24,7 @@ for (i = 0; i < yearBorn.length; i++){
         console.log("Person " + (i+1) + " is " + ages[i] + " years old, and is of full age.");
         fullAges.push(true);
     } else{
-        console.lo("Person " + (i+1) + " is " + ages[i] + " years old, and is NOT of full age");
+        console.log("Person " + (i+1) + " is " + ages[i] + " years old, and is NOT of full age");
         //fullAges.push(true);
     }
 }
