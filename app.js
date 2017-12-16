@@ -65,6 +65,15 @@ document.querySelector(".btn-roll").addEventListener("click", function(){
 
     
     //3. update the round score if the rolled number was not 1
+    if (dice > 1) {
+        //Add to round score
+        roundScoreCurrent += dice;
+        document.querySelector("#roundScoreCurrent-" + activePlayer).textContent = roundScoreCurrent;
+
+    } else{
+        //Next player's turn
+    }
+    
     
 });
 
