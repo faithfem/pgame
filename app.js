@@ -8,16 +8,34 @@
 var scores, roundScore, activePlayer, dice;
 scores=[0,0];
 roundScore = 0;
-activePlayer = 0;
+activePlayer = 1; //The number 0 is used in HTML and due to coersion, can be used to mark all items that are 0
 
 dice = Math.floor(Math.random() * 6) + 1;
-console.log(dice);
+//console.log(dice);
 
-document.querySelector("#current-" + activePlayer).textContent = dice; //DOM ACCESS. QUERY SELECTOR LETS U SELECT STHING LIKE CSS DOES. BUT IT SELECTS THE 1ST ITEM IT FIND BUT THERE IS A WORKAROUND
+//DOM MANIPULATION. USING "DOCUMENT SELECTOR" TO MANIPULATE ELEMENTS ON THE WEBPAGE
+//DICE
+//document.querySelector("#roundScoreCurrent-0").textContent = dice; //BUT BETTER TO USE THE BELOW DICE & ACTIVE PLAYER LINE
 
-var x = document.querySelector("#score-0").textContent;//SELECTS THE ROUND SCORE VARIABLE. LIKE IN CSS, TO SELECT AN ID, USE #. TO CHANGE THE TEXT IN THE SECTION, USE THE TEXTCONTENT METHOD 
+//DICE & ACTIVE PLAYER - great code, but can only change text not HMTL content. See line below for changing HTML as well. A "SETTER" COZ IT SETS A VALUE
+document.querySelector("#roundScoreCurrent-" + activePlayer).textContent = dice; //DUE TO JSCRIPT COERSION, WILL CONVERT ALL THIS TO 0 IF ACTIVEPLAYER IS 0. TO 1 IF PLAYER IS 1.
+
+//DICE & ACTIVE PLAYER & HTML. ALSO A SETTER
+//document.querySelector("#roundScoreCurrent-" + activePlayer).innerHTML = "<em>" + dice + "</em>"; //<em> helps emphasize the text
+
+//USING DOCUMENT SELECTOR TO READ ELEMENTS ON WEBPAGE AND STORE THEM IN A VARIABLE. BELOW IS CALLED A "GETTER" BECAUSE IT GETS A VALUE
+var x = document.querySelector("#globalScore-" + activePlayer).textContent; //DOES NOT EQUAL ANYTHING COZ THIS IS JUST TO "READ" THE CONTENT WITH THE ID SHOWN AND STORE IT IN VAR X.
 console.log(x);
 
-document.querySelector(".dice").style.display = "none";
+//CAN USE QUERY SELECTOR TO CHANGE CSS 
+//document.querySelector(".dice").style.display = "none"; //MAKES THE DICE IMAGE DISAPPEAR
 
-document.querySelector(".btn-roll").addEventListener("click")
+
+
+
+
+
+
+
+
+

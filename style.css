@@ -24,6 +24,7 @@ body {
     position: relative;
     height: 100vh;
     color: #555;
+    font-weight: 800;
 }
 
 .wrapper {
@@ -56,7 +57,6 @@ body {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 100;
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
@@ -65,7 +65,7 @@ body {
 .player-score {
     text-align: center;
     font-size: 80px;
-    font-weight: 100;
+    /*font-weight: 800;*/
     color: #EB4D4D;
     margin-bottom: 130px;
 }
@@ -95,13 +95,24 @@ body {
 .player-current-label {
     text-transform: uppercase;
     margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 20px;
+    font-weight: 800;
     color: #222;
+   
 }
 
-.player-current-score {
-    font-size: 30px;
+/*.player-current-score {
+    font-size: 500px;
+    color: #255;
+
+}*/
+
+.player-current-roundScore {
+    font-size: 50px;
+    color: #00F;
+
 }
+
 
 button {
     position: absolute;
@@ -148,6 +159,7 @@ i {
     transform: translateX(-50%);
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+   
 }
 
 .winner { background-color: #f7f7f7; }
