@@ -8,7 +8,7 @@
 var scores, roundScoreCurrent, activePlayer;
 scores=[0,0];
 roundScoreCurrent = 0;
-activePlayer = 1; //The number 0 is used in HTML and due to coersion, can be used to mark all items that are 0
+activePlayer = 0; //The number 0 is used in HTML and due to coersion, can be used to mark all items that are 0
 
 //dice = Math.floor(Math.random() * 6) + 1;
 //console.log(dice);
@@ -72,6 +72,26 @@ document.querySelector(".btn-roll").addEventListener("click", function(){
 
     } else{
         //Next player's turn
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScoreCurrent = 0; //when it goes to next player, their score resets to zero
+    
+        document.getElementById("roundScoreCurrent-0").textContent = "0"; //score resets to zero
+        document.getElementById("roundScoreCurrent-1").textContent = "0"; //score resets to zero
+        
+        //WHEN GAME MOVES TO NEXT PLAYER, THE PANEL AND ALL INDICATORS CHANGE TO SHOW WHO IS THE ACTIVE PLAYER NOW
+        //METHOD BELOW (LINES 86-87) IS OKAY, BUT NOT SUFFICIENT. BETTER TO USE TOGGLE METHOD - STARTS IN LINE 89
+        //i) select document by docu query selec method
+        //ii) select the player - html line 14
+        //iii) mark the new player as active. Active indicators are dictated by css styles, line 73 to 82.
+        //document.querySelector(".player-0-panel").classList.remove("active"); //When first player gets a zero, remove him from being the active player
+        //document.querySelector(".player-1-panel").classList.add("active");
+        
+        document.querySelector(".player-0-panel").classList.toggle("active"); 
+        document.querySelector(".player-1-panel").classList.toggle("active");
+        
+        //LET'S HIDE THE DICE WHEN PLAYER ROLLS A 1 (EASIER ON THE EYES, TRUST ME - ACTUALLY, I DON'T REALLY LIKE THE HIDING, SO I'LL COMMENT THE LINE BELOW OUT)
+        //document.querySelector(".dice").style.display = "none";
+    
     }
     
     
