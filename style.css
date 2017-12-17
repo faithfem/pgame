@@ -23,8 +23,8 @@ body {
     font-weight: 300;
     position: relative;
     height: 100vh;
-    color: #555;
-    font-weight: 800;
+    /*color: #555;*/
+    /*font-weight: 800;*/
 }
 
 .wrapper {
@@ -60,6 +60,8 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
+    color: #111111;
+
 }
 
 .player-score {
@@ -77,9 +79,11 @@ body {
     content: "\2022";
     font-size: 47px;
     position: absolute;
-    color: #EB4D4D;
+    /*color: #EB4D4D;*/
     top: -7px;
     right: 10px;
+    color: #4f4deb;
+    font-weight: bold;
     
 }
 
@@ -163,4 +167,4 @@ i {
 }
 
 .winner { background-color: #f7f7f7; }
-.winner .player-name { font-weight: 300; color: #EB4D4D; }
+.winner .player-name { font-weight: bold; color: #EB4D4D; }

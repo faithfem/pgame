@@ -6,9 +6,11 @@
 -The first player to reach 100 points on the GLOBAL score wins.*/
 
 var scores, roundScoreCurrent, activePlayer;
-scores=[0,0];
-roundScoreCurrent = 0;
-activePlayer = 0; //The number 0 is used in HTML and due to coersion, can be used to mark all items that are 0
+// scores=[0,0];
+// roundScoreCurrent = 0;
+// activePlayer = 0; //The number 0 is used in HTML and due to coersion, can be used to mark all items that are 0
+
+init();
 
 //dice = Math.floor(Math.random() * 6) + 1;
 //console.log(dice);
@@ -28,13 +30,14 @@ activePlayer = 0; //The number 0 is used in HTML and due to coersion, can be use
 //var x = document.querySelector("#globalScore-" + activePlayer).textContent; //DOES NOT EQUAL ANYTHING COZ THIS IS JUST TO "READ" THE CONTENT WITH THE ID SHOWN AND STORE IT IN VAR X.
 //console.log(x);
 
-//CAN USE QUERY SELECTOR TO CHANGE CSS 
-document.querySelector(".dice").style.display = "none"; //MAKES THE DICE IMAGE DISAPPEAR
+//CAN USE QUERY SELECTOR TO CHANGE CSS. PS: CODE CHANGED TO USE INIT FUNCTION BECAUSE IT INCLUDES THE CODE BELOW
+// document.querySelector(".dice").style.display = "none"; //MAKES THE DICE IMAGE DISAPPEAR
 
-document.getElementById("globalScore-0").textContent = "0";
-document.getElementById("globalScore-1").textContent = "0";
-document.getElementById("roundScoreCurrent-0").textContent = "0";
-document.getElementById("roundScoreCurrent-1").textContent = "0";
+// document.getElementById("globalScore-0").textContent = "0";
+// document.getElementById("globalScore-1").textContent = "0";
+// document.getElementById("roundScoreCurrent-0").textContent = "0";
+// document.getElementById("roundScoreCurrent-1").textContent = "0";
+init();
 
 
 //ROLL DICE
@@ -136,6 +139,47 @@ function nextPlayer(){
         document.querySelector(".player-1-panel").classList.toggle("active");
 }
 
+
+//NEW GAME STARTS AFTER WINNER WINS
+//UPDATE NEW GAME BUTTON
+//SO SET UP AN EVENT LISTENER TO LISTEN FOR THE NEW BTN BUTTON BEING CLICKED
+//WHEN IT'S CLICKED, A FUNCTION SHOULD RUN THAT TELLS IT TO RESET SCORES & SELECT THE LAST WINNER AS THE FIRST PLAYER IN THE NEW GAME & CHANGES NAMES BACK TO PLAYER 1 & PLAYER 2
+//PLEASE NOTE THAT THE SCORES, ETC BELOW ARE A REPEAT OF OUR FIRST VARIABLES AT TOP OF CODE. THIS IS UNECESSARY AND A VIOLATION OF THE DRY PRINCIPLE, SO BEST
+//TO USE A FUNCTION THAT SETS SCORES TO ZERO AT START OF EVERY NEW GAME
+// document.querySelector(".btn-new").addEventListener("click", function(){
+//     scores = [0, 0];
+//     activePlayer = 0;
+//     roundScoreCurrent = 0;
+// });
+
+document.querySelector(".btn-new").addEventListener("click", init); //You don't use the () after init coz u don't want it called, u just want it listened for
+
+
+//FUNCTION THAT SETS SCORES TO ZERO AT START OF EVERY NEW GAME
+function init(){
+    scores = [0, 0];
+    activePlayer = 0;
+    roundScoreCurrent = 0;
+    
+    document.querySelector(".dice").style.display = "none"; //MAKES THE DICE IMAGE DISAPPEAR
+
+    document.getElementById("globalScore-0").textContent = "0";
+    document.getElementById("globalScore-1").textContent = "0";
+    document.getElementById("roundScoreCurrent-0").textContent = "0";
+    document.getElementById("roundScoreCurrent-1").textContent = "0";
+    
+    document.getElementById("name-0").textContent = "Player1"; //AT NEW GAME, NAMES SHOULD BE PLAYER 1 AND PLAYER 2
+    document.getElementById("name-1").textContent = "Player2";
+    
+    //CHANGE THE WINNER CLASS SO WINNER INDICATORS (COLOR, ETC) RESET TO REGULAR
+    document.querySelector(".player-0-panel").classList.remove("winner"); //ON INIT, REMOVE ALL WINNER CLASSES FROM ANY WINNING PLAYER
+    document.querySelector(".player-1-panel").classList.remove("winner");
+    document.querySelector(".player-0-panel").classList.remove("active"); //ON INIT, REMOVE ALL WINNER CLASSES FROM ANY ACTIVE PLAYER
+    document.querySelector(".player-1-panel").classList.remove("active");
+    
+    document.querySelector(".player-0-panel").classList.add("active"); //ON INIT, MAKE ACTIVE PLAYER HIGHLIGHTED
+    
+}
 
 
 
