@@ -1,16 +1,14 @@
 var scores, roundScoreCurrent, activePlayer, gamePlaying; //THIS IS THE GLOBAL SCOPE. ALL FUNCTIONS BELOW HAVE ACCESS TO THIS
 init();
 //ACTION 2: ROLL DICE
-document.querySelector(".btn-roll").addEventListener("click", function(){
+document.querySelector(".btn-roll").addEventListener("click", function()
+{
     if (gamePlaying) //WE ONLY WANT SOME THINGS TO HAPPEN WHEN THE GAME IS PLAYING, SO CREATE FUNCTION TO SPECIFY WHAT HAPPENS WHEN PLAYING AND WHEN NOT
     { 
-
         var dice = Math.floor(Math.random() * 6) + 1;
-
         var diceDOM = document.querySelector(".dice");
         diceDOM.style.display = "block";
         diceDOM.src = "dice-" + dice + '.png';
-
         if (dice !== 1) 
         {
             //Add to round score
@@ -22,7 +20,8 @@ document.querySelector(".btn-roll").addEventListener("click", function(){
     }
 });
 
-document.querySelector(".btn-hold").addEventListener("click", function(){
+document.querySelector(".btn-hold").addEventListener("click", function()
+{
     if (gamePlaying)
     {
         scores[activePlayer] += roundScoreCurrent;
@@ -42,10 +41,10 @@ document.querySelector(".btn-hold").addEventListener("click", function(){
         }
     }
     nextPlayer(); 
-
-function nextPlayer(){
-    
-     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+});
+    function nextPlayer()
+    {
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
         roundScoreCurrent = 0; //when it goes to next player, their score resets to zero
     
         document.getElementById("roundScoreCurrent-0").textContent = "0"; //score resets to zero
@@ -57,7 +56,8 @@ function nextPlayer(){
 
 document.querySelector(".btn-new").addEventListener("click", init); //You don't use the () after init coz u don't want it called, u just want it listened for
 
-function init(){
+function init()
+{
     scores = [0, 0];
     activePlayer = 0;
     roundScoreCurrent = 0;
@@ -82,25 +82,3 @@ function init(){
     document.querySelector(".player-0-panel").classList.add("active"); //ON INIT, MAKE ACTIVE PLAYER HIGHLIGHTED
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
